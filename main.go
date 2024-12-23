@@ -20,12 +20,12 @@ func main() {
 	var myFarm farm
 	myFarm.Read("test.txt")
 	BFS(myFarm)
-	fmt.Println("number of ants is : ", myFarm.ants_number)
-	fmt.Println("rooms are : ", myFarm.rooms)
-	fmt.Println("start is : ", myFarm.start)
-	fmt.Println("end is : ", myFarm.end)
-	fmt.Println("links are : ", myFarm.links)
-	fmt.Println("adjacent is : ", Graph(myFarm))
+	// fmt.Println("number of ants is : ", myFarm.ants_number)
+	// fmt.Println("rooms are : ", myFarm.rooms)
+	// fmt.Println("start is : ", myFarm.start)
+	// fmt.Println("end is : ", myFarm.end)
+	// fmt.Println("links are : ", myFarm.links)
+	// fmt.Println("adjacent is : ", Graph(myFarm))
 }
 
 func (myFarm *farm) Read(filename string) {
@@ -124,7 +124,6 @@ func BFS(myFarm farm) {
 
 			Queue = append(Queue, adj)
 			Visited[adj] = true
-
 			for key := range end {
 				endd = key
 			}
@@ -158,9 +157,8 @@ func BFS(myFarm farm) {
 				current = Parents[current]
 				path = append([]string{current}, path...)
 			}
-
+			path = append([]string{key}, path...)
 			fmt.Printf("\nFinal path from start to end: %v\n", path)
-
 
 		}
 	}
